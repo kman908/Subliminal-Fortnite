@@ -1,0 +1,37 @@
+﻿  universal.cpp
+c:\users\keidr\documents\d3d11-worldtoscreen-finder-master\universal.cpp(185): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\users\keidr\documents\d3d11-worldtoscreen-finder-master\universal.cpp(237): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+c:\users\keidr\documents\d3d11-worldtoscreen-finder-master\universal.cpp(557): error C2664: 'HMODULE GetModuleHandleW(LPCWSTR)': cannot convert argument 1 from 'const char [9]' to 'LPCWSTR'
+  c:\users\keidr\documents\d3d11-worldtoscreen-finder-master\universal.cpp(557): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\keidr\documents\d3d11-worldtoscreen-finder-master\universal.cpp(624): error C2664: 'int MessageBoxW(HWND,LPCWSTR,LPCWSTR,UINT)': cannot convert argument 2 from 'const char [47]' to 'LPCWSTR'
+  c:\users\keidr\documents\d3d11-worldtoscreen-finder-master\universal.cpp(624): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\keidr\documents\d3d11-worldtoscreen-finder-master\universal.cpp(684): error C2664: 'DWORD GetModuleFileNameW(HMODULE,LPWSTR,DWORD)': cannot convert argument 2 from 'char [320]' to 'LPWSTR'
+  c:\users\keidr\documents\d3d11-worldtoscreen-finder-master\universal.cpp(684): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+  FW1Precompiled.cpp
+  FW1FontWrapper.cpp
+  CFW1TextRendererInterface.cpp
+  CFW1TextRenderer.cpp
+  CFW1TextGeometryInterface.cpp
+  CFW1TextGeometry.cpp
+  CFW1StateSaver.cpp
+  CFW1GlyphVertexDrawerInterface.cpp
+  CFW1GlyphVertexDrawer.cpp
+  CFW1GlyphSheetInterface.cpp
+  CFW1GlyphSheet.cpp
+  CFW1GlyphRenderStatesInterface.cpp
+  CFW1GlyphRenderStates.cpp
+  CFW1GlyphProviderInterface.cpp
+  CFW1GlyphProvider.cpp
+  CFW1GlyphAtlasInterface.cpp
+  CFW1GlyphAtlas.cpp
+  CFW1FontWrapperInterface.cpp
+  CFW1FontWrapper.cpp
+  Generating Code...
+  Compiling...
+  CFW1FactoryInterface.cpp
+  CFW1Factory.cpp
+  CFW1DWriteRenderTargetInterface.cpp
+  CFW1DWriteRenderTarget.cpp
+  CFW1ColorRGBAInterface.cpp
+  CFW1ColorRGBA.cpp
+  Generating Code...

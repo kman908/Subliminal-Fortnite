@@ -1,0 +1,1 @@
+Stride == 16 && IndexCount == 2376 && indesc.ByteWidth == 4752 && vedesc.ByteWidth == 6912 && Descr.Format == 87 && pscdesc.ByteWidth == 4096

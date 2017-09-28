@@ -1,5 +1,4 @@
-﻿//d3d11 w2s for ut4 engine games by n7
-
+﻿
 #include <Windows.h>
 #include <vector>
 #include <d3d11.h>
@@ -131,7 +130,7 @@ HRESULT __stdcall hookD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval
 
 		//create font
 		HRESULT hResult = FW1CreateFactory(FW1_VERSION, &pFW1Factory);
-		hResult = pFW1Factory->CreateFontWrapper(pDevice, L"Arial", &pFontWrapper);
+		hResult = pFW1Factory->CreateFontWrapper(pDevice, L"Tahoma", &pFontWrapper);
 		pFW1Factory->Release();
 
 		// use the back buffer address to create the render target
@@ -167,11 +166,9 @@ HRESULT __stdcall hookD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval
 	pContext->OMSetRenderTargets(1, &RenderTargetView, NULL);
 	//draw
 	if (pFontWrapper)
-	pFontWrapper->DrawString(pContext, L"Subliminal Cheats", 14, 16.0f, 16.0f, 0xffff1612, FW1_RESTORESTATE);
+	pFontWrapper->DrawString(pContext, L"Subliminal Fortnite Cheat", 14, 16.0f, 16.0f, 0xffff1612, FW1_RESTORESTATE);
 
-	wchar_t reportValueS[256];
-	swprintf_s(reportValueS, L"AimEspInfo.size() = %d", (int)AimEspInfo.size());
-	pFontWrapper->DrawString(pContext, reportValueS, 14.0f, 16.0f, 30.0f, 0xffffffff, FW1_RESTORESTATE);
+	pFontWrapper->DrawString(pContext, L"Welcome Back Keidrich" , 14.0f, 16.0f, 30.0f, 0xffffffff, FW1_RESTORESTATE);
 
 
 	//draw esp
@@ -182,7 +179,7 @@ HRESULT __stdcall hookD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval
 			//text esp
 			if (AimEspInfo[i].vOutX > 1 && AimEspInfo[i].vOutY > 1 && AimEspInfo[i].vOutX < viewport.Width && AimEspInfo[i].vOutY < viewport.Height)
 			{
-				pFontWrapper->DrawString(pContext, L"Cuck", 14, (int)AimEspInfo[i].vOutX, (int)AimEspInfo[i].vOutY, 0xFFFFFFFF, FW1_RESTORESTATE | FW1_NOGEOMETRYSHADER | FW1_CENTER | FW1_ALIASED);
+				pFontWrapper->DrawString(pContext, L"Enemy", 14, (int)AimEspInfo[i].vOutX, (int)AimEspInfo[i].vOutY, 0xFFFFFFFF, FW1_RESTORESTATE| FW1_NOGEOMETRYSHADER | FW1_CENTER | FW1_ALIASED);
 			}
 		}
 	}
@@ -263,8 +260,8 @@ HRESULT __stdcall hookD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval
 	}
 	
 	//logger
-	if ((GetAsyncKeyState(VK_INSERT) & 1)) //ALT + CTRL + L toggles logger
-		(logger = true);
+	/*if ((GetAsyncKeyState(VK_INSERT) & 1)) //ALT + CTRL + L toggles logger
+		logger = !logger;
 	if (logger && pFontWrapper) //&& countnum >= 0)
 	{
 		//bruteforce WorldViewCBnum
@@ -298,6 +295,7 @@ HRESULT __stdcall hookD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval
 			matProjnum = 0;
 
 		//call before you draw
+		//pContext->OMSetRenderTargets(1, &RenderTargetView, NULL);
 		wchar_t reportValue[256];
 		swprintf_s(reportValue, L"(Keys:-O P+ I=Log) countnum = %d", countnum);
 		pFontWrapper->DrawString(pContext, reportValue, 20.0f, 220.0f, 100.0f, 0xffffffff, FW1_RESTORESTATE);
@@ -314,11 +312,11 @@ HRESULT __stdcall hookD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval
 		swprintf_s(reportValueC, L"(Keys:-N M+) matProjnum = %d", matProjnum);
 		pFontWrapper->DrawString(pContext, reportValueC, 20.0f, 220.0f, 160.0f, 0xffffffff, FW1_RESTORESTATE);
 
-		pFontWrapper->DrawString(pContext, L"hold P to +", 20.0f, 220.0f, 120.0f, 0xfff11111, FW1_RESTORESTATE);
-		pFontWrapper->DrawString(pContext, L"hold O to -", 20.0f, 220.0f, 140.0f, 0xfaf22222, FW1_RESTORESTATE);
-		pFontWrapper->DrawString(pContext, L"press I to log", 20.0f, 220.0f, 160.0f, 0xfff99999, FW1_RESTORESTATE);
-		pFontWrapper->DrawString(pContext, L"F9 to log drawfunc", 20.0f, 220.0f, 180.0f, 0xff00ff00, FW1_RESTORESTATE);
-	}
+		//pFontWrapper->DrawString(pContext, L"hold P to +", 20.0f, 220.0f, 120.0f, 0xfff11111, FW1_RESTORESTATE);
+		//pFontWrapper->DrawString(pContext, L"hold O to -", 20.0f, 220.0f, 140.0f, 0xfaf22222, FW1_RESTORESTATE);
+		//pFontWrapper->DrawString(pContext, L"press I to log", 20.0f, 220.0f, 160.0f, 0xfff99999, FW1_RESTORESTATE);
+		//pFontWrapper->DrawString(pContext, L"F9 to log drawfunc", 20.0f, 220.0f, 180.0f, 0xff00ff00, FW1_RESTORESTATE);
+	}*/
 
 	return phookD3D11Present(pSwapChain, SyncInterval, Flags);
 }
@@ -343,7 +341,7 @@ void __stdcall hookD3D11DrawIndexed(ID3D11DeviceContext* pContext, UINT IndexCou
 	if (inBuffer != NULL) { inBuffer->Release(); inBuffer = NULL; }
 	
 	//wallhack/chams
-	if (Stride == countnum)
+	if (Stride == 0)
 	//if(Stride == 40||Stride == 44)//ut4 models (incomplete)
 	//if(Stride == 8 && IndexCount == 600)// && indesc.ByteWidth == 24912 && vedesc.ByteWidth == 24912)//quake yellow ball in tutorial (hybrid engine made up of id tech and saber tech)
 	//if (Stride == 32 && Descr.Format == 49)//outlast (ut4 engine)
@@ -357,7 +355,7 @@ void __stdcall hookD3D11DrawIndexed(ID3D11DeviceContext* pContext, UINT IndexCou
 	}
 
 	//w2s (Warning, the worse model rec, the more fps loss)
-	if (Stride == countnum)
+	if (Stride == 24)
 	//if ((Stride == 40 || Stride == 44)&&(psStartSlot > 1))//ut4 models (incomplete)
 	//if(Stride == 8 && IndexCount == 600)// && indesc.ByteWidth == 24912 && vedesc.ByteWidth == 24912)//quake yellow ball in tutorial (hybrid engine made up of id tech and saber tech)
 	//if (Stride == 32 && Descr.Format == 49)//outlast (ut4 engine)
@@ -370,7 +368,7 @@ void __stdcall hookD3D11DrawIndexed(ID3D11DeviceContext* pContext, UINT IndexCou
 	//ALT + CTRL + L toggles logger
 	if (logger)
 	{
-		if ((Stride == 24 || Stride == 24) && (GetAsyncKeyState(VK_F10) & 1))
+		if ((Stride == 40 || Stride == 44) && (GetAsyncKeyState(VK_F10) & 1))
 			Log("Stride == %d && IndexCount == %d && indesc.ByteWidth == %d && vedesc.ByteWidth == %d && Descr.Format == %d && pscdesc.ByteWidth == %d", Stride, IndexCount, indesc.ByteWidth, vedesc.ByteWidth, Descr.Format, pscdesc.ByteWidth);
 
 		//hold down P key until a texture is wallhacked, press I to log values of those textures

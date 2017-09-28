@@ -3,7 +3,7 @@
 //==========================================================================================================================
 
 //features
-int aimbot = 1;
+int aimbot = 0;
 DWORD Daimkey = VK_RBUTTON;		//aimkey
 int aimfov = 3;				//aim field of view in % 
 int aimsens = 3;			//aim sensitivity, makes aim smoother
@@ -57,8 +57,8 @@ ID3D11Buffer *mConstantBuffers;
 UINT vsConstant_StartSlot;
 
 //used for logging/cycling through values
-bool logger = true;
-static int countnum = 24;
+bool logger = false;
+static int countnum = -1;
 char szString[64];
 
 UINT psStartSlot;
